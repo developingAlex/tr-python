@@ -10,4 +10,5 @@ class Robot:
     self.x = None
     self.y = None
 
-  def place(self, )
+robot = Robot('alex')
+print(robot.name)
