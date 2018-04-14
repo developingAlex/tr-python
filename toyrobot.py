@@ -64,4 +64,4 @@ class Robot:
       return False
     
   def report(self):
-    return 'hello'
+    return str(self.x) + ', ' + str(self.y) + ', ' + self.facing
