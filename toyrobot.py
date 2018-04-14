@@ -45,4 +45,7 @@ class Robot:
       return True
     
     return False
+  
+  def turn(self, direction):
+    return False # to be implemented
     
