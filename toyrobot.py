@@ -47,5 +47,19 @@ class Robot:
     return False
   
   def turn(self, direction):
-    return False # to be implemented
+    if direction == 'RIGHT':
+      # get the index value of the self.facing value in compass
+      # and increment it , and overflow it if necessary
+      newIndex = ( self.compass.index(self.facing) + 1 ) % 4
+      self.facing = self.compass[newIndex]
+      return True
+    elif direction == 'LEFT':
+      # same as above except decrement and underflowing back up
+      # to a value of 3 from -1 is not necessary because python
+      # understands -1 to be the last element which is what we want
+      newIndex = ( self.compass.index(self.facing) - 1 )
+      self.facing = self.compass[newIndex]
+      return True
+    else:
+      return False
     
