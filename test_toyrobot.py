@@ -38,3 +38,20 @@ class RobotTestCase(unittest.TestCase):
     self.assertFalse(self.robot.place(6,6,'N'))
     # a position of 5 is off by one:
     self.assertFalse(self.robot.place(5,5,'N'))
+  
+  def testValidMove(self):
+    self.robot.place(0,0,'N')
+    # shall move forward, where forward is one position in the direction
+    # it's facing, and shall refuse to move if doing so would result in
+    # the robot falling 'off' the table.
+    self.assertTrue(self.robot.move())
+    self.assertEqual(self.robot.x, 0)
+    self.assertEqual(self.robot.y, 1)
+    
+  def testInvalidMove(self):
+    self.robot.place(0,0,'S')
+    self.assertFalse(self.robot.move())
+    self.assertEqual(self.robot.x, 0)
+    self.assertEqual(self.robot.y, 0)
+
+  

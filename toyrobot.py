@@ -26,3 +26,10 @@ class Robot:
       self.facing = 'N'
       
     return True
+  
+  # shall move forward, where forward is one position in the direction
+  # it's facing, and shall refuse to move if doing so would result in
+  # the robot falling 'off' the table.
+  def move(self):
+    return False # to be implemented
+    
