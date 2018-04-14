@@ -27,3 +27,14 @@ class RobotTestCase(unittest.TestCase):
     self.assertEqual(self.robot.x, 4)
     self.assertEqual(self.robot.y, 4)
   
+  def testInvalidPlacementFacing(self):
+    self.robot.place(4,4,'X') # should succeed, facing 'N' since 'X' is invalid
+    self.assertEqual(self.robot.facing, 'N')
+
+  def testInvalidPlacementCoords(self):
+    # our board is 5x5 and 0-indexed
+    # if the placement is refused, place returns False
+    # a position of 6 is off by two.
+    self.assertFalse(self.robot.place(6,6,'N'))
+    # a position of 5 is off by one:
+    self.assertFalse(self.robot.place(5,5,'N'))
