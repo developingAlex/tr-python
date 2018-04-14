@@ -63,3 +63,5 @@ class Robot:
     else:
       return False
     
+  def report(self):
+    return 'hello'

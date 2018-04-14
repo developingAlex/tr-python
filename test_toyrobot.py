@@ -67,3 +67,14 @@ class RobotTestCase(unittest.TestCase):
     self.assertEqual(self.robot.facing,'N')
     self.assertFalse(self.robot.turn('STRAIGHT'))
     self.assertEqual(self.robot.facing,'N')
+
+  def testReport(self):
+    self.robot.place(0,0,'N')
+    self.assertEqual(self.robot.report(), '0, 0, N')
+    self.robot.move() # 0, 1, 'N'
+    self.robot.move() # 0, 2, 'N'
+    self.robot.turn('RIGHT') # 0, 2, 'E'
+    self.robot.move() # 1, 2, 'E'
+    self.robot.move() # 2, 2, 'E'
+    self.robot.turn('RIGHT') # 2, 2, 'S'
+    self.assertEqual(self.robot.report(), '2, 2, S')
