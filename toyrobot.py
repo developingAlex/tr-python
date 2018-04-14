@@ -13,21 +13,16 @@ class Robot:
     self.table_height = table_height
     self.table_width = table_width
   
-  def place(x,y,facing):
-    if x >= table_width or y >= table_height:
+  def place(self, x, y, facing):
+    if x >= self.table_width or y >= self.table_height:
       print("invalid placement")
-      return false
+      return False
     self.x = x
     self.y = y
 
-    if facing in compass:
+    if facing in self.compass:
       self.facing = facing
     else:
       self.facing = 'N'
       
-    return true
-  
-  
-
-robot = Robot('alex')
-print(robot.name)
+    return True
