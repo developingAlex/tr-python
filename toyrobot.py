@@ -31,5 +31,18 @@ class Robot:
   # it's facing, and shall refuse to move if doing so would result in
   # the robot falling 'off' the table.
   def move(self):
-    return False # to be implemented
+    if self.facing == 'N' and self.y + 1 < self.table_height:
+      self.y += 1
+      return True
+    elif self.facing == 'E' and self.x + 1 < self.table_width:
+      self.x += 1
+      return True
+    elif self.facing == 'S' and self.y - 1 >= 0:
+      self.y -= 1
+      return True
+    elif self.facing == 'W' and self.x - 1 >= 0:
+      self.x -= 1
+      return True
+    
+    return False
     
