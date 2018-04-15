@@ -1,6 +1,3 @@
-#section 9 of the zeal python documentation = classes
-# run this file by running `python3.5 toyrobot.py`
-
 class Robot:
   """The toy robot class"""
   compass = ['N','E','S','W']
