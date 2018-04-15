@@ -10,6 +10,7 @@ class Robot:
     self.facing = None
     self.x = None
     self.y = None
+    self.placed = False
     self.table_height = table_height
     self.table_width = table_width
   
@@ -25,6 +26,7 @@ class Robot:
     else:
       self.facing = 'N'
       
+    self.placed = True
     return True
   
   # shall move forward, where forward is one position in the direction
