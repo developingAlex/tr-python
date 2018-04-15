@@ -30,7 +30,9 @@ class Robot:
   # it's facing, and shall refuse to move if doing so would result in
   # the robot falling 'off' the table.
   def move(self):
-    if self.facing == 'N' and self.y + 1 < self.table_height:
+    if self.placed == False:
+      return False
+    elif self.facing == 'N' and self.y + 1 < self.table_height:
       self.y += 1
       return True
     elif self.facing == 'E' and self.x + 1 < self.table_width:
@@ -46,7 +48,9 @@ class Robot:
     return False
   
   def turn(self, direction):
-    if direction == 'RIGHT':
+    if self.placed == False:
+      return False
+    elif direction == 'RIGHT':
       # get the index value of the self.facing value in compass
       # and increment it , and overflow it if necessary
       newIndex = ( self.compass.index(self.facing) + 1 ) % 4
@@ -63,4 +67,7 @@ class Robot:
       return False
     
   def report(self):
-    return str(self.x) + ', ' + str(self.y) + ', ' + self.facing
+    if self.placed:
+      return str(self.x) + ', ' + str(self.y) + ', ' + self.facing
+    else:
+      return 'Ready to be placed on table.'
