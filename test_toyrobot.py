@@ -78,3 +78,15 @@ class RobotTestCase(unittest.TestCase):
     self.robot.move() # 2, 2, 'E'
     self.robot.turn('RIGHT') # 2, 2, 'S'
     self.assertEqual(self.robot.report(), '2, 2, S')
+
+  def testReportPriorToPlacement(self):
+    unplacedBot = Robot('unplacedBot', 5, 5)
+    self.assertEqual(unplacedBot.report(), 'Ready to be placed on table.')
+
+  def testMovePriorToPlacement(self):
+    unplacedBot = Robot('unplacedBot', 5, 5)
+    self.assertFalse(unplacedBot.move())
+
+  def testTurnPriorToPlacement(self):
+    unplacedBot = Robot('unplacedBot', 5, 5)
+    self.assertFalse(unplacedBot.turn('RIGHT'))
